@@ -1,2 +1,2 @@
-# Flask_Blog
-Flask Testing
+# Flask_Forum
+Forum created with Python Flask
