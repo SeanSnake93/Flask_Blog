@@ -4,17 +4,18 @@
 	<form method="POST" action="">
 		{{ form.hidden_tag() }}
 		<div class="form-group">
-	                {{ form.first_name.lable }}
+	                {{ form.first_name.label }}
         	        {{ form.first_name }}
                 	{% if form.first_name.errors %}
                 	<div class="error">
                         	{% for error in form.first_name.errors %}
                                 	<span>{{ error }}</span>
                         	{% endfor %}
-               		 </div>
+			</div>
+			 {% endif %}
         	<br>
         	<div class="form-group">
-                	{{ form.last_name.lable }}
+                	{{ form.last_name.label }}
                 	{{ form.last_name }}
                 	{% if form.last_name.errors %}
                 	<div class="error">
@@ -22,9 +23,10 @@
                                 	<span>{{ error }}</span>
                         	{% endfor %}
                		</div>
+			{% endif %}
         	<br>
         	<div class="form-group">
-                	{{ form.title.lable }}
+                	{{ form.title.label }}
                 	{{ form.title }}
                 	{% if form.title.errors %}
                 	<div class="error">
@@ -32,9 +34,10 @@
                                 	<span>{{ error }}</span>
                         	{% endfor %}
                 	</div>
+			{% endif %}
         	<br>
         	<div class="form-group">
-                	{{ form.content.lable }}
+                	{{ form.content.label }}
                 	{{ form.content }}
                 	{% if form.content.errors %}
                 	<div class="error">
@@ -42,7 +45,7 @@
                                 	<span>{{ error }}</span>
                         	{% endfor %}
                 	</div>
-                	{% endfor %}
+			{% endif %}
 		</div>
 		<br>
 		<div class="form-group">
@@ -50,3 +53,4 @@
 		</div>
 	</form>
 </div>
+{% endblock %}

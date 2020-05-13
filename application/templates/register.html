@@ -1,5 +1,41 @@
-{% extends "Layout.html" %}
+{% extends "layout.html" %}
 
 {% block body_content %}
-<p>Register an account with this app</p>
+<form method='POST' action="">
+	{{ form.hidden_tag() }}
+	<div class="form-group">
+		{{ form.email }}
+		{{ form.email.label }}
+		{% if form.email.errors %}
+		<div class='error'>
+			{% for error in form.email.errors %}
+				<span>{{ error }}</span>
+			{% endfor %}
+		</div>
+		{% endif %}
+
+	<div class="form-group">
+                {{ form.password }}
+                {{ form.password.label }}
+                {% if form.password.errors %}
+                <div class='error'>
+                        {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                        {% endfor %}
+                </div>
+                {% endif %}
+
+	<div class="form-group">
+                {{ form.confirm_password }}
+                {{ form.confirm_password.label }}
+                {% if form.confirm_password.errors %}
+                <div class='error'>
+                        {% for error in form.confirm_password.errors %}
+                                <span>{{ error }}</span>
+                        {% endfor %}
+                </div>
+                {% endif %}
+
+		{{ form.submit }}
+
 {% endblock %}
