@@ -1,9 +1,12 @@
 from flask import Flask
-from os import getenv
 from flask_sqlalchemy import SQLAlchemy
+from os import getenv
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI']=getenv( ' FLASK_BLOG_BD_URI' )
-BD = SQLAlchemy(app)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = str(os.getenv( 'FLASK_BLOG_BD_URI' ))
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SECRET_KEY'] = 'YOUR_SECRET_KEY'
+db = SQLAlchemy(app)
 
 from application import routes
