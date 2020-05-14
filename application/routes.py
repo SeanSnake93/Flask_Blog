@@ -82,7 +82,7 @@ def account_delete():
         db.session.delete(post)
 #        db.session.commit()
     db.session.delete(account)
-    bd.session.commit()
+    db.session.commit()
     return redirect(url_for('register'))
 
     if current_user.is_authenticated:
