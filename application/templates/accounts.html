@@ -1,7 +1,8 @@
 {% extends "layout.html" %}
 
 {% block body_content %}
-<div class=form>
+<div class='form'>
+        <h3>{{ current_user.first_name }}'s Account</h3>        
         <form method='POST' action="">
                 {{ form.hidden_tag() }} <!--This must be at the top of the form to enable hidden key-->
                 <div class="form-group">
@@ -21,9 +22,9 @@
                         {{ form.last_name }}
                         {% if form.last_name.errors %}
                         <div class="error">
-                                {% for error in form.last_name.errors %}
-                                        <span>{{ error }}</span>
-                                {% endfor %}
+                        {% for error in form.last_name.errors %}
+                                <span>{{ error }}</span>
+                        {% endfor %}
                         </div>
                         {% endif %}
                 </div>
@@ -39,32 +40,9 @@
                         </div>
                         {% endif %}
                 </div>
-                <br>
-                <div class="form-group">
-                        {{ form.password.label }}
-                        {{ form.password }}
-                        {% if form.password.errors %}
-                        <div class='error'>
-                                {% for error in form.password.errors %}
-                                        <span>{{ error }}</span>
-                                {% endfor %}
-                        </div>
-                        {% endif %}
-                </div>
-                <br>
-                <div class="form-group">
-                        {{ form.confirm_password }}
-                        {{ form.confirm_password.label }}
-                        {% if form.confirm_password.errors %}
-                        <div class='error'>
-                                {% for error in form.confirm_password.errors %}
-                                        <span>{{ error }}</span>
-                                {% endfor %}
-                        </div>
-                        {% endif %}
-                </div>
+        
+        {{ form.submit }}
+
         </form>
 </div>
-                        {{ form.submit }}
-
 {% endblock %}
