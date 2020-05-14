@@ -2,8 +2,30 @@
 
 {% block body_content %}
 <form method='POST' action="">
-	{{ form.hidden_tag() }}
+	{{ form.hidden_tag() }} <!--This must be at the top of the form to enable hidden key-->
 	<div class="form-group">
+                {{ form.first_name.label }}
+                {{ form.first_name }}
+                {% if form.first_name.errors %}
+                <div class="error">
+                        {% for error in form.first_name.errors %}
+                                <span>{{ error }}</span>
+                        {% endfor %}
+                </div>
+                 {% endif %}
+        <br>
+        <div class="form-group">
+                {{ form.last_name.label }}
+                {{ form.last_name }}
+                {% if form.last_name.errors %}
+                <div class="error">
+                        {% for error in form.last_name.errors %}
+                                <span>{{ error }}</span>
+                        {% endfor %}
+                       </div>
+                {% endif %}
+                <br>
+                </r><div class="form-group">
 		{{ form.email }}
 		{{ form.email.label }}
 		{% if form.email.errors %}

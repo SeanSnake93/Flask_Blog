@@ -16,11 +16,19 @@ def about():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
     form = RegistrationForm()
     if form.validate_on_submit():
         hash_pw=bcrypt.generate_password_hash(form.password.data)
 
-        user=Users(email=form.email.data, password=hash_pw)
+        user=Users(
+            first_name=form.first_name.data,
+            last_name=form.last_name.data,
+            email=form.email.data, 
+            password=hash_pw
+            )
+
         db.session.add(user)
         db.session.commit()
 
@@ -35,7 +43,10 @@ def login():
     if form.validate_on_submit():
         user=Users.query.filter_by(email=form.email.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
-            login_user(user, remember=form.remember.data)
+            login_user(
+                user,
+                remember=form.remember.data
+            )
             next_page = request.args.get('next')
             if next_page:
                 return redirect(next_page)
@@ -55,9 +66,10 @@ def post():
     form = PostForm()
     if form.validate_on_submit():
         postData = Posts(
-                first_name=form.first_name.data,
-                last_name=form.last_name.data,
+                #first_name=form.first_name.data,
+                #last_name=form.last_name.data,
                 title=form.title.data,
+                auther=current_user
                 content=form.content.data
         )
 
