@@ -83,7 +83,7 @@ class LoginForm(FlaskForm):
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
 
-class UpdateAccoutForm(FlaskForm):
+class UpdateAccountForm(FlaskForm):
     first_name = StringField("First Name",
         validators=[
             DataRequired(),
