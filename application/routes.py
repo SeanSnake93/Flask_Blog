@@ -71,6 +71,39 @@ def account():
         form.email = current_user.email
     return render_template('account.html', title='Account', form=form)
 
+@app.route('/account/delete', methods=['GET', 'POST'])
+@login_required
+def account_delete():
+    user = current_user.id
+    account = user.query.filter_by(id=user).first()
+    posts = post.query.filter_by(user_id=user).all()
+    logout_user()
+    for post in posts:
+        db.session.delete(post)
+#        db.session.commit()
+    db.session.delete(account)
+    bd.session.commit()
+    return redirect(url_for('register'))
+
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        hash_pw=bcrypt.generate_password_hash(form.password.data)
+
+        user=Users(
+            first_name=form.first_name.data,
+            last_name=form.last_name.data,
+            email=form.email.data, 
+            password=hash_pw
+            )
+
+        db.session.add(user)
+        db.session.commit()
+
+        return redirect(url_for('post'))
+    return render_template('register.html', title='Register', form=form)
+
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
     logout_user()
