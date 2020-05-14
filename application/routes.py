@@ -68,7 +68,7 @@ def account():
     elif request.method =='GET':
         form.first_name =  current_user.first_name
         form.last_name = current_user.last_name
-        form.email = form.email.data
+        form.email = current_user.email
     return render_template('account.html', title='Account', form=form)
 
 @app.route('/logout', methods=['GET', 'POST'])
