@@ -66,8 +66,8 @@ def account():
         db.session.commit()
         return redirect(url_for('account'))
     elif request.method =='GET':
-        form.first_name = form.first_name.data
-        form.last_name = form.last_name.data
+        form.first_name =  current_user.first_name
+        form.last_name = current_user.last_name
         form.email = form.email.data
     return render_template('account.html', title='Account', form=form)
 
