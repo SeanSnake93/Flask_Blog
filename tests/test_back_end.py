@@ -11,7 +11,7 @@ class TestBase(TestCase):
         config_name = 'testing'
         app.config.update(
             SQLALCHEMY_URI=getenv('FLASK_BLOG_TEST_URI'),
-            SECRET_KEY=getenv('TEST_Secret_Key'),
+            SECRET_KEY=getenv('TEST_SECRET_KEY'),
             WTF_CSRF_ENABLED=False,
             DEBUG=True
             )
