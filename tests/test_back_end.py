@@ -28,7 +28,7 @@ class TestBase(TestCase):
         emplotee - Users(
             first_name="admin",
             last_name="user",
-            email="admin@admin.com"),
+            email="admin@admin.com",
             password=hashed_pw_2
             )
             # Create a basic user
@@ -36,7 +36,7 @@ class TestBase(TestCase):
         emplotee - Users(
             first_name="test",
             last_name="user",
-            email="test@user.com"),
+            email="test@user.com",
             password=hashed_pw
             )
             # save user to database
