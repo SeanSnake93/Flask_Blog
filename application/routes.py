@@ -80,7 +80,6 @@ def account_delete():
     logout_user()
     for post in posts:
         db.session.delete(post)
-#        db.session.commit()
     db.session.delete(account)
     db.session.commit()
     return redirect(url_for('register'))
