@@ -59,7 +59,7 @@ class TestPosts(TestBase):
         with self.client:
             self.client.post(
                 url_for('login'),
-                data=dirt(
+                data=dict(
                     email="admin@admin.com",
                     password="admin2016"
                 ),
@@ -67,7 +67,7 @@ class TestPosts(TestBase):
             )
             response = self.client.post(
                 url_for('post'),
-                data=dirt(
+                data=dict(
                     title="Test Title",
                     content="Test Content"
                 ),
