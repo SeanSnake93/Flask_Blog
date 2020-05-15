@@ -7,7 +7,7 @@ from os import getenv
 
 class TestBase(TestCase):
     def create_app(self):
-        #pass in configuration for test database
+        # pass in configuration for test database
         config_name = 'testing'
         app.config.update(
             SQLALCHEMY_URI=getenv('FLASK_BLOG_TEST_URI'),
@@ -24,7 +24,7 @@ class TestBase(TestCase):
         db.drop_all()
         db.create_all()
             # Create a test admin user
-        hashed_pw = bcrypt.generate_pasword_hash('admin2016')
+        hashed_pw = bcrypt.generate_password_hash('admin2016')
         admin = Users(
             first_name="admin",
             last_name="user",
@@ -32,7 +32,7 @@ class TestBase(TestCase):
             password=hashed_pw
             )
             # Create a basic user
-        hashed_pw_2 = bcrypt.generate_pasword_hash('test2016')
+        hashed_pw_2 = bcrypt.generate_password_hash('test2016')
         employee = Users(
             first_name="test",
             last_name="user",
