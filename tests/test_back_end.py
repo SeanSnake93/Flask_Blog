@@ -24,7 +24,7 @@ class TestBase(TestCase):
         db.drop_all()
         db.create_all()
             # Create a test admin user
-        hashed_pw = bcript.generate_pasword_hash('admin2016')
+        hashed_pw = bcrypt.generate_pasword_hash('admin2016')
         admin = Users(
             first_name="admin",
             last_name="user",
@@ -32,7 +32,7 @@ class TestBase(TestCase):
             password=hashed_pw
             )
             # Create a basic user
-        hashed_pw_2 = bcript.generate_pasword_hash('test2016')
+        hashed_pw_2 = bcrypt.generate_pasword_hash('test2016')
         employee = Users(
             first_name="test",
             last_name="user",
