@@ -66,7 +66,7 @@ class TestPosts(TestBase):
             follow_redirects=True
             )
             response = self.client.post(
-                url_for('post')
+                url_for('post'),
                 data=dirt(
                     title="Test Title",
                     content="Test Content"
