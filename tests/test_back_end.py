@@ -21,7 +21,7 @@ class TestBase(TestCase):
         """Will be called before very test"""
             # ensure that there is no data in the test database when the test starts
         db.session.commit()
-        db.drop.all()
+        db.drop_all()
         db.create_all()
             # Create a test admin user
         hashed_pw = bcript.generate_pasword_hash('admin2016')
