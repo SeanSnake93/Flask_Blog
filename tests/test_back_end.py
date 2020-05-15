@@ -73,4 +73,4 @@ class TestPosts(TestBase):
                 ),
                 follow_redirects=True
             )
-        self.assertIn(b'Test Title', responce.data)
+        self.assertIn(b'Test Title', response.data)
