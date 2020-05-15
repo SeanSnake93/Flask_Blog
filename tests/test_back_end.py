@@ -51,7 +51,7 @@ class TestBase(TestCase):
 
 class TestViews(TestBase):
     def test_homepage_view(self):
-        respons = self.client.get(url_for('home'))
+        response = self.client.get(url_for('home'))
         self.assertEqual(response.status_code, 200)
     
 class TestPosts(TestBase):
