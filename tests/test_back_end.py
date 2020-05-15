@@ -41,7 +41,7 @@ class TestBase(TestCase):
             )
             # save user to database
         db.session.add(admin)
-        db.session.ad(employee)
+        db.session.add(employee)
         db.session.commit()
 
     def tearDown(self):
