@@ -55,7 +55,7 @@ class TestViews(TestBase):
         self.assertEqual(response.status_code, 200)
     
 class TestPosts(TestBase):
-    def test_add_new_past(self):
+    def test_add_new_post(self):
         with self.client:
             self.client.post(
                 url_for('login'),
