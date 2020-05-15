@@ -3,7 +3,7 @@ from flask import abort, url_for
 from flask_testing import TestCase
 from application import app, db, bcrypt
 from application.models import Users, Posts
-from od import getenv
+from os import getenv
 
 class TestBase(TestCase):
     def create_app(self):
