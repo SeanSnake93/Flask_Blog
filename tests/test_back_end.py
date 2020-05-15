@@ -3,14 +3,14 @@ from flask import abort, url_for
 from flask_testing import TestCase
 from application import app, db, bcrypt
 from application.models import Users, Posts
-import os
+from od import getenv
 
 class TestBase(TestCase):
     def create_app(self):
         #pass in configuration for test database
         config_name = 'testing'
         app.config.update(
-            SQLALCHEMY_URI=getenv( 'TEST_DB_URI'),
+            SQLALCHEMY_URI=getenv('FLASK_BLOG_TEST_URI'),
             SECRET_KEY=getenv('TEST_Secret_Key'),
             WTF_CSRF_ENABLED=False,
             DEBUG=True
